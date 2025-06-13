@@ -81,7 +81,7 @@ Pre-loaded with sample bookings and Middle-Earth themed profile data.
 
 ## 📁 Project Structure
 
-
+```
 project/
 ├── assets/
 │   ├── css/          # Modular stylesheets
@@ -90,7 +90,7 @@ project/
 ├── *.html            # Individual page templates
 ├── README.md         # This file
 └── WEATHER_SETUP.md  # Weather API configuration guide
-
+```
 
 ---
 
