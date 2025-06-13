@@ -1,0 +1,202 @@
+/* Weather widget styles */
+:root {
+    --primary-rgb: 40, 156, 96;
+    --accent2-rgb: 184, 134, 11;
+}
+
+.weather-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.weather-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.weather-modal-content {
+    background: var(--card-bg-color);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.weather-modal.show .weather-modal-content {
+    transform: translateY(0);
+}
+
+.weather-info {
+    text-align: center;
+}
+
+.weather-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.weather-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--accent2));
+    padding: 10px;
+}
+
+.weather-main h4 {
+    color: var(--secondary);
+    margin: 0 0 10px 0;
+    font-size: 1.3rem;
+}
+
+.temperature {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.description {
+    color: var(--text-color-secondary);
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.weather-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.weather-detail {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weather-detail span:first-child {
+    color: var(--text-color-secondary);
+    font-size: 0.9rem;
+}
+
+.weather-detail span:last-child {
+    color: var(--text-color-primary);
+    font-weight: 600;
+}
+
+.weather-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.weather-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+.weather-btn.primary {
+    background: linear-gradient(to right, var(--primary), var(--accent2));
+    color: white;
+}
+
+.weather-btn.secondary {
+    background: transparent;
+    color: var(--text-color-secondary);
+    border: 2px solid var(--text-color-secondary);
+}
+
+.weather-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.weather-btn.primary:hover {
+    opacity: 0.9;
+}
+
+.weather-btn.secondary:hover {
+    background: var(--text-color-secondary);
+    color: var(--dark);
+}
+
+.weather-loading {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-color-secondary);
+}
+
+.weather-loading i {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--primary);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.weather-error {
+    text-align: center;
+    padding: 20px;
+    color: #ff6b6b;
+    background: rgba(255, 107, 107, 0.1);
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+}
+
+.weather-tip {
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), rgba(var(--accent2-rgb), 0.1));
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+    border-left: 4px solid var(--primary);
+}
+
+.weather-tip h5 {
+    color: var(--secondary);
+    margin: 0 0 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.weather-tip p {
+    color: var(--text-color-secondary);
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
